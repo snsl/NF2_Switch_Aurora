@@ -1,0 +1,8 @@
+# Output products list for <txfifo_512x72_to_18_aur>
+txfifo_512x72_to_18_aur.ngc
+txfifo_512x72_to_18_aur.v
+txfifo_512x72_to_18_aur.veo
+txfifo_512x72_to_18_aur.xco
+txfifo_512x72_to_18_aur_fifo_generator_v4_4_xst_1.ngc_xst.xrpt
+txfifo_512x72_to_18_aur_flist.txt
+txfifo_512x72_to_18_aur_xmdf.tcl

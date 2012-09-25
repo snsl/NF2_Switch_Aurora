@@ -1,0 +1,83 @@
+#################################################################################
+##
+##      Project:  Aurora Module Generator version 2.9
+##
+##         Date:  $Date: 2007/10/04 04:15:12 $
+##          Tag:  $Name: i+IP+138572 $
+##         File:  $RCSfile: aurora_ucf.ejava,v $
+##          Rev:  $Revision: 1.1.2.1 $
+##
+##      Company:  Xilinx
+##
+##   Disclaimer:  XILINX IS PROVIDING THIS DESIGN, CODE, OR
+##                INFORMATION "AS IS" SOLELY FOR USE IN DEVELOPING
+##                PROGRAMS AND SOLUTIONS FOR XILINX DEVICES.  BY
+##                PROVIDING THIS DESIGN, CODE, OR INFORMATION AS
+##                ONE POSSIBLE IMPLEMENTATION OF THIS FEATURE,
+##                APPLICATION OR STANDARD, XILINX IS MAKING NO
+##                REPRESENTATION THAT THIS IMPLEMENTATION IS FREE
+##                FROM ANY CLAIMS OF INFRINGEMENT, AND YOU ARE
+##                RESPONSIBLE FOR OBTAINING ANY RIGHTS YOU MAY
+##                REQUIRE FOR YOUR IMPLEMENTATION.  XILINX
+##                EXPRESSLY DISCLAIMS ANY WARRANTY WHATSOEVER WITH
+##                RESPECT TO THE ADEQUACY OF THE IMPLEMENTATION,
+##                INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OR
+##                REPRESENTATIONS THAT THIS IMPLEMENTATION IS FREE
+##                FROM CLAIMS OF INFRINGEMENT, IMPLIED WARRANTIES
+##                OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+##                PURPOSE.
+##
+##                (c) Copyright 2004 Xilinx, Inc.
+##                All rights reserved.
+##
+#################################################################################
+##
+##  aurora_link_UCF
+##
+##
+##  Description: This is the user constraints file for a 1 lane Aurora
+##               reference design module. This module supports the following features:
+##
+##              *   Supports Virtex 2 Pro
+##
+##              Please note that the module's clock constraints are set for maximum rate.
+##              You should change the constraints to match the needs of your design
+##
+
+
+
+
+#Timing Contraints for the MGT Recovered clock. These period constraints should match the
+# period used for your MGT reference clock (REFCLK, REFCLK2, BREFCLK or BREFCLK2). This
+# constraint controls the routing between each MGT's REC_CLK port and the phase align
+# module for that lane
+
+NET lane_0_mgt_i/RXRECCLK PERIOD=6.4 ns;
+
+
+#Sample user clock constraint
+NET USER_CLK PERIOD = 6.4 ns;
+
+
+
+
+
+
+
+
+
+
+
+
+##########################    Lane 0 Constraints ####################
+
+#Constrain locatation of the registers in the Phase Align Module. This insures
+# correct timing with respect to the MGT's enable comma align signal
+INST aurora_link_lane_0_phase_align_i/phase_align_flops_r* AREA_GROUP="PHASE_ALIGN_0_GRP";
+AREA_GROUP "PHASE_ALIGN_0_GRP" RANGE=SLICE_X14Y168:SLICE_X15Y169;
+
+# Place lane_0_mgt_i at location X0Y1
+INST lane_0_mgt_i LOC=GT_X0Y1;
+
+
+

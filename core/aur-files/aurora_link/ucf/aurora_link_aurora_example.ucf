@@ -1,0 +1,107 @@
+#################################################################################
+##
+##      Project:  Aurora Module Generator version 2.9
+##
+##         Date:  $Date: 2007/10/04 04:15:08 $
+##          Tag:  $Name: i+IP+138572 $
+##         File:  $RCSfile: aurora_example_ucf.ejava,v $
+##          Rev:  $Revision: 1.1.2.1 $
+##
+##      Company:  Xilinx
+##
+##   Disclaimer:  XILINX IS PROVIDING THIS DESIGN, CODE, OR
+##                INFORMATION "AS IS" SOLELY FOR USE IN DEVELOPING
+##                PROGRAMS AND SOLUTIONS FOR XILINX DEVICES.  BY
+##                PROVIDING THIS DESIGN, CODE, OR INFORMATION AS
+##                ONE POSSIBLE IMPLEMENTATION OF THIS FEATURE,
+##                APPLICATION OR STANDARD, XILINX IS MAKING NO
+##                REPRESENTATION THAT THIS IMPLEMENTATION IS FREE
+##                FROM ANY CLAIMS OF INFRINGEMENT, AND YOU ARE
+##                RESPONSIBLE FOR OBTAINING ANY RIGHTS YOU MAY
+##                REQUIRE FOR YOUR IMPLEMENTATION.  XILINX
+##                EXPRESSLY DISCLAIMS ANY WARRANTY WHATSOEVER WITH
+##                RESPECT TO THE ADEQUACY OF THE IMPLEMENTATION,
+##                INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OR
+##                REPRESENTATIONS THAT THIS IMPLEMENTATION IS FREE
+##                FROM CLAIMS OF INFRINGEMENT, IMPLIED WARRANTIES
+##                OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+##                PURPOSE.
+##
+##                (c) Copyright 2004 Xilinx, Inc.
+##                All rights reserved.
+##
+#################################################################################
+##
+##  AURORA_SAMPLE_UCF
+##
+##
+##  Description: This is the user constraints file for a 1 lane Aurora
+##               reference design module. This module supports the following features:
+##
+##              *   Supports Virtex 2 Pro on an ML323 evaluation board
+##
+##              Please note that the module's clock constraints are set for maximum rate.
+##              You should change the constraints to match the needs of your design.  Please
+##              see the notice in the header of the aurora_example.v file.
+##
+##              This ucf file is for an xc2vp50 on an ML323 board. Since you are using an xc2vp50 device, you
+##              must change all the LOC constraints that are currently commented out to match your current board
+
+
+
+
+
+
+
+
+
+# Timing Contraints for the MGT Recovered clock. These period constraints should match the
+# period used for your MGT reference clock (REFCLK, REFCLK2, BREFCLK or BREFCLK2). This
+# constraint controls the routing between each MGT's REC_CLK port and the phase align
+# module for that lane
+
+NET aurora_link_aurora_module_i/lane_0_mgt_i/RXRECCLK PERIOD=6.4 ns;
+
+
+#Sample user clock constraint
+NET user_clk_i PERIOD = 6.4 ns;
+
+
+NET top_REF_CLK_i PERIOD = 6.4 ns;
+
+
+
+
+
+
+
+
+################Set the locations of the pins for an ML323 board##############
+
+
+# SMA connection
+NET TOP_REF_CLK_P   LOC=B14;
+NET TOP_REF_CLK_N   LOC=C14;
+
+
+
+NET RESET           LOC=AH15;   #BUTTON
+NET CHANNEL_UP      LOC=G10;     #LED
+NET HARD_ERROR      LOC=J11;     #LED
+NET SOFT_ERROR      LOC=K11;     #LED
+NET FRAME_ERROR     LOC=J10;     #LED
+
+#This board supports a maximum of 8 lanes
+NET LANE_UP          LOC=AG25;     #LED
+
+
+
+
+
+##########################    Lane 0 Constraints ####################
+
+# Place lane_0_mgt_i at location X0Y1
+INST aurora_link_aurora_module_i/lane_0_mgt_i LOC=GT_X0Y1;
+
+
+

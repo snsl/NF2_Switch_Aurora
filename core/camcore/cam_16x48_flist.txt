@@ -1,0 +1,9 @@
+# Output products list for <cam_16x48>
+cam_16x48.mif
+cam_16x48.ngc
+cam_16x48.v
+cam_16x48.veo
+cam_16x48.xco
+cam_16x48_cam_v6_1_xst_1.ngc_xst.xrpt
+cam_16x48_flist.txt
+cam_16x48_xmdf.tcl

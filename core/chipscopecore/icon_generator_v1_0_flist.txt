@@ -1,0 +1,8 @@
+# Output products list for <icon_generator_v1_0>
+icon_generator_v1_0.ncf
+icon_generator_v1_0.ngc
+icon_generator_v1_0.v
+icon_generator_v1_0.veo
+icon_generator_v1_0.xco
+icon_generator_v1_0_flist.txt
+icon_generator_v1_0_xmdf.tcl
